@@ -19,3 +19,11 @@ class Contact(models.Model):
     city = models.CharField(max_length=255, null=True, blank=True)
     state = USStateField(null=True, blank=True)
     zip_code = USZipCodeField(null=True, blank=True)
+    birthdate = models.DateField(null=True, blank=True)
+# null=True means that the value is allowed to be null, same for blank=True
+
+class Note(models.Model):
+    note_content = models.TextField()
+    note_date = models.DateTimeField(auto_now_add=True)
+    contact = models.ForeignKey(Contact)
+    # DO WE NEED THE ON_DELETE PART? we took it out because it seemed like we would want to keep the contact info even if a note was deleted. 

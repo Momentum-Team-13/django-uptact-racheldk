@@ -10,6 +10,14 @@
   <div class="w-33 pa3">
     <h2>{{ contact.name }}</h2>
 
+    {% if contact.birthdate %}
+    <div class="flex">
+      <!-- <div class="pr2"><i class="icofont-phone"></i></div> -->
+      <div>{{ contact.birthdate }}</div>
+    </div>
+    {% endif %}
+
+
     <div class="flex">
       <div class="pr2"><i class="icofont-location-pin"></i></div>
       <div>
