@@ -8,7 +8,9 @@
 <div class="flex flex-wrap">
   {% for contact in contacts %}
   <div class="w-33 pa3">
-    <h2>{{ contact.name }}</h2>
+    <h2>
+    <a href="{% url 'view_contact' pk=contact.pk %}">{{ contact.name }}</a>
+    </h2>
 
     {% if contact.birthdate %}
     <div class="flex">
