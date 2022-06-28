@@ -1,6 +1,12 @@
 from django.db import models
 from django.core.validators import RegexValidator
 from localflavor.us.models import USStateField, USZipCodeField
+from django.utils import timezone
+
+
+class Note(models.Model):
+    note_content = models.TextField(blank=True, null=True)
+    note_date = models.DateTimeField(auto_now_add=True)
 
 
 class Contact(models.Model):
@@ -20,10 +26,10 @@ class Contact(models.Model):
     state = USStateField(null=True, blank=True)
     zip_code = USZipCodeField(null=True, blank=True)
     birthdate = models.DateField(null=True, blank=True)
+    note = models.ForeignKey(Note, on_delete=models.CASCADE, related_name="note", blank=True, null=True)
 # null=True means that the value is allowed to be null, same for blank=True
 
-class Note(models.Model):
-    note_content = models.TextField()
-    note_date = models.DateTimeField(auto_now_add=True)
-    contact = models.ForeignKey(Contact)
-    # DO WE NEED THE ON_DELETE PART? we took it out because it seemed like we would want to keep the contact info even if a note was deleted. 
+
+
+
+
