@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Add Note to Contact</h1>
+
+<div>
+    <form action="{% url 'add_contact_note' pk=contact.pk %}" method="POST">
+        {% csrf_token %} 
+        {{ form.as_p }}
+        <!-- I don't understand what line 9 is doing. taking the form from forms.py that is specified as add_contact_note??? -->
+        <div>
+            <button type="submit">Update Contact</button>
+          </div>
+    </form>
+</div>
+{% endblock %}

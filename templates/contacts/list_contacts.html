@@ -47,8 +47,7 @@
 
     {% if contact.note %} 
     <div class="flex">
-        <div>I think this should pull the note</div>
-        <div>{{ contact.note }}</div>
+        <div>{{ contact.note.note_content }}</div>
     </div>
     {% endif %}
 

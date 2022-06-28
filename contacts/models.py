@@ -7,6 +7,10 @@ from django.utils import timezone
 class Note(models.Model):
     note_content = models.TextField(blank=True, null=True)
     note_date = models.DateTimeField(auto_now_add=True)
+    contact = models.ForeignKey("Contact", on_delete=models.CASCADE, related_name="note_on_contact", blank=True, null=True)
+    
+    def __str__(self):
+        return self.note_content
 
 
 class Contact(models.Model):
@@ -26,7 +30,6 @@ class Contact(models.Model):
     state = USStateField(null=True, blank=True)
     zip_code = USZipCodeField(null=True, blank=True)
     birthdate = models.DateField(null=True, blank=True)
-    note = models.ForeignKey(Note, on_delete=models.CASCADE, related_name="note", blank=True, null=True)
 # null=True means that the value is allowed to be null, same for blank=True
 
 
