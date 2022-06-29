@@ -11,10 +11,10 @@ def list_contacts(request):
     return render(request, "contacts/list_contacts.html", {"contacts": contacts})
 
 # Added new view here
-def view_contact(request, pk):
+def contact_detail(request, pk):
     contact = get_object_or_404(Contact, pk=pk)
     notes = Note.objects.filter(contact=pk)
-    return render(request, "contacts/view_contact.html", {"contact": contact, "notes":notes})    
+    return render(request, "contacts/contact_detail.html", {"contact": contact, "notes":notes})    
 
 def add_contact_note(request, pk):
     contact = get_object_or_404(Contact, pk=pk)
