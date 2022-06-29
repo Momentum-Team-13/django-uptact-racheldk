@@ -8,6 +8,9 @@
     {% csrf_token %}
     {{ form.as_p }}
     <div>
+      <a href="{% url 'add_contact_note' pk=contact.pk %}">Add Note to Contact</a><br />
+    </div>
+    <div>
       <button type="submit">Update Contact</button>
     </div>
   </form>

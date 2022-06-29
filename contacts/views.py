@@ -6,6 +6,8 @@ from .forms import ContactForm, NoteForm
 # Create your views here.
 def list_contacts(request):
     contacts = Contact.objects.all()
+    # for contact in contacts:
+    #     notes=Note.objects.filter(contact)
     return render(request, "contacts/list_contacts.html", {"contacts": contacts})
 
 # Added new view here
@@ -23,7 +25,7 @@ def add_contact_note(request, pk):
         form = NoteForm(data=request.POST)
         if form.is_valid():
             new_note = form.save(commit=False)
-            # new_note.save() 
+            # new_note = form.save()
             new_note.contact = contact
             new_note.save()
             return redirect(to='view_contact', pk=pk)        
