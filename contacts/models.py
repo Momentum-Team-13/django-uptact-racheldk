@@ -7,7 +7,7 @@ from django.utils import timezone
 class Note(models.Model):
     note_content = models.TextField(blank=True, null=True)
     note_date = models.DateTimeField(auto_now_add=True)
-    contact = models.ForeignKey("Contact", on_delete=models.CASCADE, related_name="note_on_contact", blank=True, null=True)
+    contact = models.ForeignKey("Contact", on_delete=models.CASCADE, related_name="notes_on_contact", blank=True, null=True)
     
     def __str__(self):
         return self.note_content
