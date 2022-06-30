@@ -9,7 +9,7 @@
   {% for contact in contacts %}
   <div class="w-33 pa3">
     <h2>
-    <a href="{% url 'view_contact' pk=contact.pk %}">{{ contact.name }}</a>
+    <a href="{% url 'contact_detail' pk=contact.pk %}">{{ contact.name }}</a>
     </h2>
 
     <p>Click contact name to see Notes</p>
